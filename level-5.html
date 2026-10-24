@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DULOVO 8 — Ниво 5</title>
+  <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+  <div class="page wide">
+    <div class="top-bar">
+      <a class="logo" href="index.html">DULOVO 8</a>
+      <span class="player-name" id="player-name"></span>
+    </div>
+
+    <h1>Ниво 5: Инструкциите OUT и STOP!</h1>
+
+    <div class="level-layout">
+      <div>
+        <div class="ram-title">RAM</div>
+        <table class="ram">
+          <tbody id="ram-body"></tbody>
+        </table>
+      </div>
+
+      <div class="task">
+        <button class="run-button" id="run-button">
+          <span class="run-icon">▶</span>
+          <span>Стартирай програмата</span>
+        </button>
+        <div class="feedback" id="feedback"></div>
+        <div class="actions" id="next" hidden>
+          <a class="button" href="level-6.html">Към ниво 6</a>
+          <a class="button secondary" href="index.html">Към началото</a>
+        </div>
+        <div class="panel">
+          <h2>Задача</h2>
+          <p>
+            Рождената ти дата вече е в клетки 1101, 1110 и 1111. Напиши програма,
+            която я показва на екрана. Програмата започва от клетка <strong>0000</strong>
+            и компютърът изпълнява клетките една след друга.
+          </p>
+          <p>Компютърът познава две инструкции:</p>
+          <ul>
+            <li>
+              <strong>OUT 1101</strong> — вземи байта от клетка 1101 и го покажи на екрана
+              като десетично число.
+            </li>
+            <li>
+              <strong>STOP!</strong> — спри компютъра. Без него той ще продължи към
+              следващата клетка.
+            </li>
+          </ul>
+          <p>
+            Покажи на екрана <strong>деня</strong>, <strong>месеца</strong> и
+            <strong>годината</strong>, в този ред, и натисни „Стартирай програмата“.
+          </p>
+        </div>
+      </div>
+
+      <div>
+        <div class="ram-title">Screen</div>
+        <div class="screen" id="screen" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/progress.js?v=6"></script>
+  <script src="js/machine.js?v=6"></script>
+  <script src="js/level-5.js?v=6"></script>
+</body>
+</html>

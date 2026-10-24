@@ -27,6 +27,15 @@ const Progress = (() => {
       data.name = name;
       save(data);
     },
+    // { day, month, year } or null.
+    getBirthDate() {
+      return load().birthDate || null;
+    },
+    setBirthDate(birthDate) {
+      const data = load();
+      data.birthDate = birthDate;
+      save(data);
+    },
     isCompleted(level) {
       return (load().completed || []).includes(level);
     },

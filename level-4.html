@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DULOVO 8 — Ниво 4</title>
+  <link rel="stylesheet" href="css/style.css?v=6">
+</head>
+<body>
+  <div class="page">
+    <div class="top-bar">
+      <a class="logo" href="index.html">DULOVO 8</a>
+      <span class="player-name" id="player-name"></span>
+    </div>
+
+    <h1>Ниво 4: Рождената ти дата в байтове</h1>
+
+    <div class="level-layout">
+      <div>
+        <div class="ram-title">RAM</div>
+        <table class="ram">
+          <tbody id="ram-body"></tbody>
+        </table>
+      </div>
+
+      <div class="task">
+        <div class="panel">
+          <h2>Кога си роден(а)?</h2>
+          <input type="date" id="birth-date" min="1900-01-01" max="2099-12-31">
+          <p id="birth-values"></p>
+        </div>
+
+        <div class="panel">
+          <h2>Задача</h2>
+          <p>
+            Всяка клетка от паметта побира <strong>1 байт</strong> — това са <strong>8 бита</strong>.
+            С 8 бита можеш да запишеш числата от 0 до 255. Ето стойностите на битовете:
+          </p>
+          <table class="bits byte">
+            <tr><th>128</th><th>64</th><th>32</th><th>16</th><th>8</th><th>4</th><th>2</th><th>1</th></tr>
+            <tr><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>0</td><td>0</td></tr>
+          </table>
+          <p>Например 16 + 4 = 20 се записва като <strong>0001 0100</strong>.</p>
+          <p>Запиши рождената си дата в последните три клетки:</p>
+          <ul>
+            <li><strong>1101</strong> — денят</li>
+            <li><strong>1110</strong> — месецът</li>
+            <li><strong>1111</strong> — годината (само последните две цифри, защото 2014 не се побира в един байт)</li>
+          </ul>
+          <p>💡 Пиши и осемте бита. Можеш да ги разделиш с интервал: 0000 0101.</p>
+        </div>
+
+        <div class="actions">
+          <button class="button" id="check-button">Провери</button>
+          <button class="button secondary" id="clear-button">Изчисти</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
+        <div class="actions" id="next" hidden>
+          <a class="button" href="level-5.html">Към ниво 5</a>
+          <a class="button secondary" href="index.html">Към началото</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/progress.js?v=6"></script>
+  <script src="js/machine.js?v=6"></script>
+  <script src="js/level-4.js?v=6"></script>
+</body>
+</html>

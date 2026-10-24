@@ -15,16 +15,18 @@
   --button-bg: #38761d;
   --button-hover: #274e13;
   --button-fg: #fff;
+  --run-bg: #fff2cc;
+  --screen-bg: #fff;
 }
 
-/* Dark theme: black background, green borders, as in the original sheet. */
+/* Dark theme: black background with green text and borders. */
 @media (prefers-color-scheme: dark) {
   :root {
     --bg: #000;
-    --fg: #fff;
+    --fg: #93c47d;
     --green: #6aa84f;
     --border: #6aa84f;
-    --muted: #9a9a9a;
+    --muted: #7f9f73;
     --error: #e06666;
     --ok-bg: #1f3a14;
     --error-bg: #3d1616;
@@ -33,6 +35,8 @@
     --button-bg: #6aa84f;
     --button-hover: #4e7d3a;
     --button-fg: #000;
+    --run-bg: #4d4000;
+    --screen-bg: #0b1a06;
   }
 }
 
@@ -60,6 +64,10 @@ a {
   max-width: 960px;
   margin: 0 auto;
   padding: 24px 16px 48px;
+}
+
+.page.wide {
+  max-width: 1240px;
 }
 
 .top-bar {
@@ -234,6 +242,14 @@ input[type="text"] {
   width: 250px;
 }
 
+.ram td.label {
+  text-align: center;
+}
+
+.ram td.running {
+  background: var(--run-bg);
+}
+
 .ram td.decimal {
   border: none;
   width: 40px;
@@ -255,6 +271,12 @@ input[type="text"] {
 
 .ram input:focus {
   background: var(--focus-bg);
+}
+
+.ram input:disabled {
+  color: var(--fg);
+  -webkit-text-fill-color: var(--fg);
+  opacity: 1;
 }
 
 .ram td.correct {
@@ -314,6 +336,84 @@ input[type="text"] {
   padding-left: 12px;
   text-align: left;
   white-space: nowrap;
+}
+
+.bits.byte th,
+.bits.byte td {
+  width: 36px;
+  padding: 4px 2px;
+  font-size: 16px;
+}
+
+input[type="date"] {
+  background: var(--bg);
+  color: var(--fg);
+  border: 2px solid var(--border);
+  padding: 8px 12px;
+  font-size: 18px;
+  font-family: inherit;
+}
+
+/* Program levels */
+
+.run-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 300px;
+  padding: 16px;
+  background: var(--border);
+  color: #000;
+  border: none;
+  border-radius: 24px;
+  margin-bottom: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.run-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.run-icon {
+  font-size: 56px;
+  line-height: 1;
+}
+
+.screen {
+  width: 240px;
+  min-height: 300px;
+  padding: 16px;
+  border: 6px solid var(--border);
+  background: var(--screen-bg);
+  font-size: 36px;
+  text-align: center;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+.example,
+.codes {
+  border-collapse: collapse;
+  margin: 8px 0;
+}
+
+.example td,
+.codes td,
+.codes th {
+  border: 2px solid var(--border);
+  padding: 4px 12px;
+}
+
+.codes th {
+  color: var(--green);
+}
+
+.note {
+  color: var(--muted);
 }
 
 @media (max-width: 480px) {
