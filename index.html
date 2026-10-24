@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DULOVO 8</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page">
+    <div class="top-bar">
+      <a class="logo" href="index.html">DULOVO 8</a>
+      <span class="player-name" id="player-name"></span>
+    </div>
+
+    <div class="hero">
+      <h1>DULOVO 8</h1>
+      <p>Построй и програмирай свой собствен 8-битов компютър</p>
+    </div>
+
+    <div class="panel">
+      <h2>Здравей!</h2>
+      <p>
+        DULOVO 8 е малък компютър, който ще сглобиш стъпка по стъпка.
+        Той работи с числа от 8 бита (от 0 до 255) и има памет от само 16 клетки.
+        Колкото и прост да е, той работи точно като компютъра, телефона или конзолата,
+        които използваш всеки ден.
+      </p>
+      <div class="parts">
+        <div class="part">
+          <h3>RAM</h3>
+          Паметта. 16 клетки, всяка с адрес. В тях стоят програмата и числата.
+        </div>
+        <div class="part">
+          <h3>Регистри A, B, C</h3>
+          Малки кутийки в процесора, в които се смята.
+        </div>
+        <div class="part">
+          <h3>CPU флагове</h3>
+          Показват резултата от сравнение: равно, по-малко или по-голямо.
+        </div>
+        <div class="part">
+          <h3>Екран</h3>
+          Тук компютърът показва резултата от програмата.
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Как се казваш?</h2>
+      <form class="name-form" id="name-form">
+        <input type="text" id="name-input" placeholder="Твоето име" maxlength="30" required>
+        <button class="button" type="submit">Запази</button>
+      </form>
+    </div>
+
+    <div class="panel">
+      <h2>Нива</h2>
+      <ul class="levels">
+        <li>
+          <span><strong>Ниво 1:</strong> Адресите на паметта</span>
+          <span>
+            <span class="badge" id="level-1-done" hidden>✔ Завършено</span>
+            <a class="button" href="level-1.html">Играй</a>
+          </span>
+        </li>
+        <li class="locked">
+          <span><strong>Ниво 2:</strong> Очаквай скоро</span>
+          <span>🔒</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="js/progress.js"></script>
+  <script>
+    const nameInput = document.getElementById("name-input");
+    nameInput.value = Progress.getName();
+    showPlayerName();
+
+    document.getElementById("name-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      Progress.setName(nameInput.value.trim());
+      showPlayerName();
+    });
+
+    document.getElementById("level-1-done").hidden = !Progress.isCompleted(1);
+  </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DULOVO 8 — Ниво 1</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page">
+    <div class="top-bar">
+      <a class="logo" href="index.html">DULOVO 8</a>
+      <span class="player-name" id="player-name"></span>
+    </div>
+
+    <h1>Ниво 1: Адресите на паметта</h1>
+
+    <div class="level-layout">
+      <div>
+        <div class="ram-title">RAM</div>
+        <table class="ram">
+          <tbody id="ram-body"></tbody>
+        </table>
+      </div>
+
+      <div class="task">
+        <div class="panel">
+          <h2>Задача</h2>
+          <p>
+            Това е паметта (RAM) на DULOVO 8. Тя има 16 клетки и в момента е празна.
+          </p>
+          <p>
+            За да може компютърът да намери нещо в паметта, всяка клетка има
+            <strong>адрес</strong> — номер, също като номерата на къщите по една улица.
+          </p>
+          <p>
+            Попълни <strong>първата колона</strong> с адресите на клетките:
+            числата от <strong>0</strong> до <strong>15</strong>, отгоре надолу.
+          </p>
+          <p>💡 Внимавай: компютрите започват да броят от 0, а не от 1!</p>
+        </div>
+
+        <div class="actions">
+          <button class="button" id="check-button">Провери</button>
+          <button class="button secondary" id="clear-button">Изчисти</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
+        <div class="actions" id="next" hidden>
+          <a class="button" href="index.html">Към началото</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/progress.js"></script>
+  <script src="js/level-1.js"></script>
+</body>
+</html>
