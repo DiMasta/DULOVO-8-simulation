@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DULOVO 8 — Ниво 3</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page">
+    <div class="top-bar">
+      <a class="logo" href="index.html">DULOVO 8</a>
+      <span class="player-name" id="player-name"></span>
+    </div>
+
+    <h1>Ниво 3: Двоичен код без подсказки</h1>
+
+    <div class="level-layout">
+      <div>
+        <div class="ram-title">RAM</div>
+        <table class="ram">
+          <tbody id="ram-body"></tbody>
+        </table>
+      </div>
+
+      <div class="task">
+        <div class="panel">
+          <h2>Задача</h2>
+          <p>
+            Този път подсказките отляво ги няма. Запиши адресите на клетките от
+            <strong>0</strong> до <strong>15</strong> в <strong>двоичен код с 4 бита</strong>,
+            отгоре надолу.
+          </p>
+          <p>Помниш ли стойностите на битовете?</p>
+          <table class="bits">
+            <tr><th>8</th><th>4</th><th>2</th><th>1</th></tr>
+          </table>
+          <p>💡 Първата клетка е 0000, а последната е 1111.</p>
+        </div>
+
+        <div class="actions">
+          <button class="button" id="check-button">Провери</button>
+          <button class="button secondary" id="clear-button">Изчисти</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
+        <div class="actions" id="next" hidden>
+          <a class="button" href="index.html">Към началото</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/progress.js"></script>
+  <script src="js/ram-level.js"></script>
+  <script src="js/level-3.js"></script>
+</body>
+</html>

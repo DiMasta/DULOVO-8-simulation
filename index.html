@@ -57,23 +57,31 @@
     <div class="panel">
       <h2>Нива</h2>
       <ul class="levels">
-        <li>
+        <li data-level="1">
           <span><strong>Ниво 1:</strong> Адресите на паметта</span>
           <span>
-            <span class="badge" id="level-1-done" hidden>✔ Завършено</span>
-            <a class="button" href="level-1.html">Играй</a>
+            <span class="badge done" hidden>✔ Завършено</span>
+            <a class="button play" href="level-1.html">Играй</a>
           </span>
         </li>
-        <li>
+        <li data-level="2">
           <span><strong>Ниво 2:</strong> Адресите в двоичен код</span>
           <span>
-            <span class="badge" id="level-2-done" hidden>✔ Завършено</span>
-            <a class="button" href="level-2.html" id="level-2-play" hidden>Играй</a>
-            <span class="locked" id="level-2-locked">🔒 Първо мини ниво 1</span>
+            <span class="badge done" hidden>✔ Завършено</span>
+            <a class="button play" href="level-2.html">Играй</a>
+            <span class="locked lock" hidden>🔒 Първо мини ниво 1</span>
+          </span>
+        </li>
+        <li data-level="3">
+          <span><strong>Ниво 3:</strong> Двоичен код без подсказки</span>
+          <span>
+            <span class="badge done" hidden>✔ Завършено</span>
+            <a class="button play" href="level-3.html">Играй</a>
+            <span class="locked lock" hidden>🔒 Първо мини ниво 2</span>
           </span>
         </li>
         <li class="locked">
-          <span><strong>Ниво 3:</strong> Очаквай скоро</span>
+          <span><strong>Ниво 4:</strong> Очаквай скоро</span>
           <span>🔒</span>
         </li>
       </ul>
@@ -92,10 +100,15 @@
       showPlayerName();
     });
 
-    document.getElementById("level-1-done").hidden = !Progress.isCompleted(1);
-    document.getElementById("level-2-done").hidden = !Progress.isCompleted(2);
-    document.getElementById("level-2-play").hidden = !Progress.isCompleted(1);
-    document.getElementById("level-2-locked").hidden = Progress.isCompleted(1);
+    // Each level unlocks once the previous one is completed.
+    document.querySelectorAll(".levels li[data-level]").forEach((item) => {
+      const level = Number(item.dataset.level);
+      const unlocked = level === 1 || Progress.isCompleted(level - 1);
+      item.querySelector(".done").hidden = !Progress.isCompleted(level);
+      item.querySelector(".play").hidden = !unlocked;
+      const lock = item.querySelector(".lock");
+      if (lock) lock.hidden = unlocked;
+    });
   </script>
 </body>
 </html>

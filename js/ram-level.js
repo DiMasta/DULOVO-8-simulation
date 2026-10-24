@@ -119,3 +119,14 @@ function setupRamLevel(options) {
   showPlayerName();
   inputs[0].focus();
 }
+
+// Options shared by the levels that ask for 4-bit binary addresses.
+const BINARY_ADDRESS_OPTIONS = {
+  maxLength: 4,
+  filter: /[^01]/g,
+  isCorrect: (value, i) => value === i.toString(2).padStart(4, "0"),
+  hint: (values) =>
+    values.some((value) => value !== "" && value.length < 4)
+      ? "Всеки адрес трябва да има точно 4 бита — допълни с нули отпред (например 0011)."
+      : "",
+};
