@@ -13,6 +13,10 @@
   box-sizing: border-box;
 }
 
+[hidden] {
+  display: none !important;
+}
+
 body {
   margin: 0;
   background: var(--bg);
@@ -186,7 +190,6 @@ input[type="text"] {
 
 .ram {
   border-collapse: collapse;
-  border: 3px solid var(--green);
   font-size: 22px;
 }
 
@@ -202,6 +205,14 @@ input[type="text"] {
 
 .ram td.content {
   width: 250px;
+}
+
+.ram td.decimal {
+  border: none;
+  width: 40px;
+  padding-right: 8px;
+  text-align: right;
+  color: var(--muted);
 }
 
 .ram input {
@@ -252,6 +263,32 @@ input[type="text"] {
   color: var(--error);
 }
 
+.bits {
+  border-collapse: collapse;
+  margin: 8px 0;
+  font-size: 20px;
+  text-align: center;
+}
+
+.bits th,
+.bits td {
+  border: 2px solid var(--green);
+  width: 48px;
+  padding: 4px;
+}
+
+.bits th {
+  color: var(--green);
+}
+
+.bits td.sum {
+  border: none;
+  width: auto;
+  padding-left: 12px;
+  text-align: left;
+  white-space: nowrap;
+}
+
 @media (max-width: 480px) {
   .hero h1 {
     font-size: 40px;
@@ -259,5 +296,9 @@ input[type="text"] {
 
   .ram td.content {
     width: 200px;
+  }
+
+  .ram td.decimal + td.address + td.content {
+    width: 150px;
   }
 }

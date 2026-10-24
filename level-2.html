@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DULOVO 8 — Ниво 2</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="page">
+    <div class="top-bar">
+      <a class="logo" href="index.html">DULOVO 8</a>
+      <span class="player-name" id="player-name"></span>
+    </div>
+
+    <h1>Ниво 2: Адресите в двоичен код</h1>
+
+    <div class="level-layout">
+      <div>
+        <div class="ram-title">RAM</div>
+        <table class="ram">
+          <tbody id="ram-body"></tbody>
+        </table>
+      </div>
+
+      <div class="task">
+        <div class="panel">
+          <h2>Задача</h2>
+          <p>
+            Компютърът не познава цифрите от 0 до 9. Той разбира само
+            <strong>0</strong> и <strong>1</strong> — ток няма или ток има.
+            Една такава цифра се нарича <strong>бит</strong>.
+          </p>
+          <p>
+            Адресите на DULOVO 8 са от <strong>4 бита</strong>. Всеки бит има своя стойност:
+          </p>
+          <table class="bits">
+            <tr><th>8</th><th>4</th><th>2</th><th>1</th><td class="sum"></td></tr>
+            <tr><td>0</td><td>1</td><td>0</td><td>1</td><td class="sum">= 4 + 1 = 5</td></tr>
+          </table>
+          <p>
+            Събери стойностите на битовете, които са 1, и ще получиш числото.
+            Така 5 се записва като <strong>0101</strong>.
+          </p>
+          <p>
+            Запиши адресите от 0 до 15 в <strong>двоичен код с 4 бита</strong>.
+            Сивите числа отляво ще ти помагат.
+          </p>
+          <p>💡 Винаги пиши и четирите бита: 1 е <strong>0001</strong>, а не 1.</p>
+        </div>
+
+        <div class="actions">
+          <button class="button" id="check-button">Провери</button>
+          <button class="button secondary" id="clear-button">Изчисти</button>
+        </div>
+        <div class="feedback" id="feedback"></div>
+        <div class="actions" id="next" hidden>
+          <a class="button" href="index.html">Към началото</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/progress.js"></script>
+  <script src="js/ram-level.js"></script>
+  <script src="js/level-2.js"></script>
+</body>
+</html>
