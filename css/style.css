@@ -1,12 +1,39 @@
 :root {
-  --bg: #000;
-  --fg: #fff;
-  --green: #6aa84f;
-  --green-dark: #4e7d3a;
-  --muted: #9a9a9a;
-  --error: #e06666;
-  --ok-bg: #1f3a14;
-  --error-bg: #3d1616;
+  color-scheme: light dark;
+
+  /* Light theme (default): white background, green text and borders. */
+  --bg: #fff;
+  --fg: #274e13;
+  --green: #38761d;
+  --border: #6aa84f;
+  --muted: #6b8a5e;
+  --error: #b42318;
+  --ok-bg: #d9ead3;
+  --error-bg: #f4cccc;
+  --focus-bg: #f1f8ee;
+  --divider: #d9ead3;
+  --button-bg: #38761d;
+  --button-hover: #274e13;
+  --button-fg: #fff;
+}
+
+/* Dark theme: black background, green borders, as in the original sheet. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000;
+    --fg: #fff;
+    --green: #6aa84f;
+    --border: #6aa84f;
+    --muted: #9a9a9a;
+    --error: #e06666;
+    --ok-bg: #1f3a14;
+    --error-bg: #3d1616;
+    --focus-bg: #1a1a1a;
+    --divider: #222;
+    --button-bg: #6aa84f;
+    --button-hover: #4e7d3a;
+    --button-fg: #000;
+  }
 }
 
 * {
@@ -60,15 +87,15 @@ h2 {
 }
 
 .panel {
-  border: 3px solid var(--green);
+  border: 3px solid var(--border);
   padding: 16px 20px;
   margin-bottom: 24px;
 }
 
 .button {
   display: inline-block;
-  background: var(--green);
-  color: #000;
+  background: var(--button-bg);
+  color: var(--button-fg);
   border: none;
   border-radius: 12px;
   padding: 12px 24px;
@@ -79,13 +106,13 @@ h2 {
 }
 
 .button:hover {
-  background: var(--green-dark);
+  background: var(--button-hover);
 }
 
 .button.secondary {
   background: transparent;
   color: var(--green);
-  border: 2px solid var(--green);
+  border: 2px solid var(--border);
 }
 
 .button:disabled {
@@ -94,9 +121,9 @@ h2 {
 }
 
 input[type="text"] {
-  background: #000;
+  background: var(--bg);
   color: var(--fg);
-  border: 2px solid var(--green);
+  border: 2px solid var(--border);
   padding: 8px 12px;
   font-size: 18px;
 }
@@ -127,7 +154,7 @@ input[type="text"] {
 }
 
 .part {
-  border: 2px solid var(--green);
+  border: 2px solid var(--border);
   padding: 12px 16px;
 }
 
@@ -154,7 +181,7 @@ input[type="text"] {
   justify-content: space-between;
   align-items: center;
   gap: 12px;
-  border-bottom: 1px solid #222;
+  border-bottom: 1px solid var(--divider);
   padding: 12px 0;
 }
 
@@ -194,7 +221,7 @@ input[type="text"] {
 }
 
 .ram td {
-  border: 3px solid var(--green);
+  border: 3px solid var(--border);
   height: 44px;
   padding: 0;
 }
@@ -227,7 +254,7 @@ input[type="text"] {
 }
 
 .ram input:focus {
-  background: #1a1a1a;
+  background: var(--focus-bg);
 }
 
 .ram td.correct {
@@ -272,7 +299,7 @@ input[type="text"] {
 
 .bits th,
 .bits td {
-  border: 2px solid var(--green);
+  border: 2px solid var(--border);
   width: 48px;
   padding: 4px;
 }
