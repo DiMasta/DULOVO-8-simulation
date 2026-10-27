@@ -11,10 +11,10 @@ const RAM_SIZE = 16;
 
 function setupRamLevel(options) {
   const ramBody = document.getElementById("ram-body");
-  const feedback = document.getElementById("feedback");
   const checkButton = document.getElementById("check-button");
-  const next = document.getElementById("next");
   const inputs = [];
+
+  if (options.showDecimal) ramBody.parentElement.classList.add("with-decimal");
 
   for (let i = 0; i < RAM_SIZE; i++) {
     const row = document.createElement("tr");
@@ -58,11 +58,6 @@ function setupRamLevel(options) {
     ramBody.appendChild(row);
   }
 
-  function setFeedback(text, kind) {
-    feedback.textContent = text;
-    feedback.className = "feedback " + kind;
-  }
-
   function checkAnswers() {
     let empty = 0;
     let wrong = 0;
@@ -81,16 +76,9 @@ function setupRamLevel(options) {
     });
 
     if (empty === 0 && wrong === 0) {
-      const name = Progress.getName();
-      setFeedback(
-        "Браво" + (name ? ", " + name : "") + "! Всички 16 адреса са верни. Ниво " +
-          options.level + " е завършено!",
-        "ok"
-      );
-      Progress.complete(options.level);
       inputs.forEach((input) => (input.disabled = true));
       checkButton.disabled = true;
-      next.hidden = false;
+      showSuccess(options.level, "Всички 16 адреса са верни. Ниво " + options.level + " е завършено!");
     } else if (wrong > 0) {
       let text = wrong === 1 ? "Има 1 грешен адрес" : "Има " + wrong + " грешни адреса";
       text += " (в червено). Опитай пак!";
@@ -108,7 +96,6 @@ function setupRamLevel(options) {
       input.parentElement.classList.remove("correct", "wrong");
     });
     checkButton.disabled = false;
-    next.hidden = true;
     setFeedback("", "");
     inputs[0].focus();
   }
@@ -116,7 +103,6 @@ function setupRamLevel(options) {
   checkButton.addEventListener("click", checkAnswers);
   document.getElementById("clear-button").addEventListener("click", clearAnswers);
 
-  showPlayerName();
   inputs[0].focus();
 }
 
@@ -127,6 +113,6 @@ const BINARY_ADDRESS_OPTIONS = {
   isCorrect: (value, i) => value === i.toString(2).padStart(4, "0"),
   hint: (values) =>
     values.some((value) => value !== "" && value.length < 4)
-      ? "Всеки адрес трябва да има точно 4 бита — допълни с нули отпред (например 0011)."
+      ? "Адресът има точно 4 бита: 3 е 0011."
       : "",
 };

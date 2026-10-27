@@ -4,57 +4,61 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DULOVO 8 — Ниво 1</title>
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/style.css?v=7">
 </head>
-<body>
-  <div class="page">
-    <div class="top-bar">
-      <a class="logo" href="index.html">DULOVO 8</a>
-      <span class="player-name" id="player-name"></span>
+<body class="game">
+  <header class="bar">
+    <a class="logo" href="index.html">DULOVO 8</a>
+    <h1>Ниво 1 · Адресите на паметта</h1>
+    <span class="player-name" id="player-name"></span>
+  </header>
+
+  <section class="task">
+    <p class="goal">Попълни адресите на клетките: от <strong>0</strong> до <strong>15</strong>.</p>
+    <button class="help-button" id="help-button" aria-label="Помощ">?</button>
+  </section>
+
+  <main class="stage">
+    <div class="cpu-area"></div>
+    <div class="ram-area">
+      <div class="area-title">RAM</div>
+      <table class="ram">
+        <tbody id="ram-body"></tbody>
+      </table>
     </div>
+    <div class="screen-area"></div>
+  </main>
 
-    <h1>Ниво 1: Адресите на паметта</h1>
-
-    <div class="level-layout">
-      <div>
-        <div class="ram-title">RAM</div>
-        <table class="ram">
-          <tbody id="ram-body"></tbody>
-        </table>
-      </div>
-
-      <div class="task">
-        <div class="panel">
-          <h2>Задача</h2>
-          <p>
-            Това е паметта (RAM) на DULOVO 8. Тя има 16 клетки и в момента е празна.
-          </p>
-          <p>
-            За да може компютърът да намери нещо в паметта, всяка клетка има
-            <strong>адрес</strong> — номер, също като номерата на къщите по една улица.
-          </p>
-          <p>
-            Попълни <strong>първата колона</strong> с адресите на клетките:
-            числата от <strong>0</strong> до <strong>15</strong>, отгоре надолу.
-          </p>
-          <p>💡 Внимавай: компютрите започват да броят от 0, а не от 1!</p>
-        </div>
-
-        <div class="actions">
-          <button class="button" id="check-button">Провери</button>
-          <button class="button secondary" id="clear-button">Изчисти</button>
-        </div>
-        <div class="feedback" id="feedback"></div>
-        <div class="actions" id="next" hidden>
-          <a class="button" href="level-2.html">Към ниво 2</a>
-          <a class="button secondary" href="index.html">Към началото</a>
-        </div>
-      </div>
+  <footer class="controls">
+    <p class="feedback" id="feedback"></p>
+    <div class="actions">
+      <button class="button" id="check-button">Провери</button>
+      <button class="button secondary" id="clear-button">Изчисти</button>
     </div>
-  </div>
+  </footer>
 
-  <script src="js/progress.js?v=6"></script>
-  <script src="js/ram-level.js?v=6"></script>
-  <script src="js/level-1.js?v=6"></script>
+  <dialog class="dialog" id="help-dialog">
+    <h2>Помощ</h2>
+    <p>Паметта (RAM) има 16 клетки. Всяка клетка има <strong>адрес</strong> — номер,
+      като номерата на къщите по една улица.</p>
+    <p>💡 Компютрите броят от 0, а не от 1!</p>
+    <div class="actions">
+      <button class="button" data-close>Разбрах</button>
+    </div>
+  </dialog>
+
+  <dialog class="dialog" id="success-dialog">
+    <h2 id="success-title">Браво!</h2>
+    <p id="success-text"></p>
+    <div class="actions">
+      <a class="button secondary" href="index.html">Към началото</a>
+      <a class="button" href="level-2.html">Към ниво 2</a>
+    </div>
+  </dialog>
+
+  <script src="js/progress.js?v=7"></script>
+  <script src="js/ui.js?v=7"></script>
+  <script src="js/ram-level.js?v=7"></script>
+  <script src="js/level-1.js?v=7"></script>
 </body>
 </html>

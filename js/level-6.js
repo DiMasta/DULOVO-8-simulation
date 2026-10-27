@@ -13,20 +13,17 @@ setupProgramLevel({
 });
 
 if (target) {
-  document.getElementById("goal").textContent =
-    "Напиши програма, която показва на екрана „" + target + "“" +
-    (target.length < firstName.length ? " (първите " + MAX_LETTERS + " букви от името ти)" : "") +
-    ". Ето кодовете на буквите, които ще ти трябват:";
+  document.getElementById("goal").innerHTML = "Покажи <strong></strong> на екрана. Кодовете на буквите:";
+  document.querySelector("#goal strong").textContent = "„" + target + "“";
 
   const codes = document.getElementById("codes");
-  codes.innerHTML = "<tr><th>Буква</th><th>Код</th></tr>";
   [...new Set(target)].forEach((char) => {
-    const row = codes.insertRow();
-    row.insertCell().textContent = char;
+    const item = document.createElement("li");
     const code = charToByte(char);
-    row.insertCell().textContent = code === null ? "—" : code;
+    item.textContent = char + " = " + (code === null ? "?" : code);
+    codes.appendChild(item);
   });
 } else {
+  document.getElementById("goal").textContent = "Първо напиши името си на началната страница.";
   document.getElementById("run-button").disabled = true;
-  setFeedback("Първо напиши името си на началната страница.", "error");
 }

@@ -26,8 +26,7 @@ function showBirthDate() {
 
   dateInput.value = date.year + "-" + pad(date.month) + "-" + pad(date.day);
   document.getElementById("birth-values").textContent =
-    "Ден: " + date.day + ", месец: " + date.month + ", година: " + (date.year % 100) +
-    " (последните две цифри на " + date.year + ")";
+    "→ " + date.day + ", " + date.month + ", " + (date.year % 100);
 }
 
 dateInput.addEventListener("change", () => {
@@ -64,14 +63,11 @@ checkButton.addEventListener("click", () => {
   });
 
   if (empty === 0 && wrong === 0) {
-    const name = Progress.getName();
-    setFeedback("Браво" + (name ? ", " + name : "") + "! Рождената ти дата е в паметта. Ниво 4 е завършено!", "ok");
-    Progress.complete(4);
-    document.getElementById("next").hidden = false;
+    showSuccess(4, "Рождената ти дата е в паметта. Ниво 4 е завършено!");
   } else if (wrong > 0) {
     let text = wrong === 1 ? "Има 1 грешен байт" : "Има " + wrong + " грешни байта";
     text += " (в червено). Опитай пак!";
-    if (notEightBits) text += " Всеки байт има точно 8 бита — допълни с нули отпред.";
+    if (notEightBits) text += " Байтът има точно 8 бита: 5 е 0000 0101.";
     setFeedback(text, "error");
   } else {
     setFeedback(empty === 1 ? "Остава 1 празна клетка." : "Остават " + empty + " празни клетки.", "error");
@@ -83,9 +79,7 @@ document.getElementById("clear-button").addEventListener("click", () => {
     input.value = "";
     input.parentElement.classList.remove("correct", "wrong");
   });
-  document.getElementById("next").hidden = true;
   setFeedback("", "");
 });
 
 showBirthDate();
-showPlayerName();

@@ -4,55 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DULOVO 8 — Ниво 3</title>
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/style.css?v=7">
 </head>
-<body>
-  <div class="page">
-    <div class="top-bar">
-      <a class="logo" href="index.html">DULOVO 8</a>
-      <span class="player-name" id="player-name"></span>
+<body class="game">
+  <header class="bar">
+    <a class="logo" href="index.html">DULOVO 8</a>
+    <h1>Ниво 3 · Двоичен код без подсказки</h1>
+    <span class="player-name" id="player-name"></span>
+  </header>
+
+  <section class="task">
+    <p class="goal">Пак адресите в <strong>двоичен код с 4 бита</strong> — този път без подсказки.</p>
+    <button class="help-button" id="help-button" aria-label="Помощ">?</button>
+  </section>
+
+  <main class="stage">
+    <div class="cpu-area"></div>
+    <div class="ram-area">
+      <div class="area-title">RAM</div>
+      <table class="ram">
+        <tbody id="ram-body"></tbody>
+      </table>
     </div>
+    <div class="screen-area"></div>
+  </main>
 
-    <h1>Ниво 3: Двоичен код без подсказки</h1>
-
-    <div class="level-layout">
-      <div>
-        <div class="ram-title">RAM</div>
-        <table class="ram">
-          <tbody id="ram-body"></tbody>
-        </table>
-      </div>
-
-      <div class="task">
-        <div class="panel">
-          <h2>Задача</h2>
-          <p>
-            Този път подсказките отляво ги няма. Запиши адресите на клетките от
-            <strong>0</strong> до <strong>15</strong> в <strong>двоичен код с 4 бита</strong>,
-            отгоре надолу.
-          </p>
-          <p>Помниш ли стойностите на битовете?</p>
-          <table class="bits">
-            <tr><th>8</th><th>4</th><th>2</th><th>1</th></tr>
-          </table>
-          <p>💡 Първата клетка е 0000, а последната е 1111.</p>
-        </div>
-
-        <div class="actions">
-          <button class="button" id="check-button">Провери</button>
-          <button class="button secondary" id="clear-button">Изчисти</button>
-        </div>
-        <div class="feedback" id="feedback"></div>
-        <div class="actions" id="next" hidden>
-          <a class="button" href="level-4.html">Към ниво 4</a>
-          <a class="button secondary" href="index.html">Към началото</a>
-        </div>
-      </div>
+  <footer class="controls">
+    <p class="feedback" id="feedback"></p>
+    <div class="actions">
+      <button class="button" id="check-button">Провери</button>
+      <button class="button secondary" id="clear-button">Изчисти</button>
     </div>
-  </div>
+  </footer>
 
-  <script src="js/progress.js?v=6"></script>
-  <script src="js/ram-level.js?v=6"></script>
-  <script src="js/level-3.js?v=6"></script>
+  <dialog class="dialog" id="help-dialog">
+    <h2>Помощ</h2>
+    <p>Стойностите на битовете са:</p>
+    <table class="bits">
+      <tr><th>8</th><th>4</th><th>2</th><th>1</th><td class="sum"></td></tr>
+      <tr><td>0</td><td>1</td><td>0</td><td>1</td><td class="sum">= 4 + 1 = 5</td></tr>
+    </table>
+    <p>💡 Първата клетка е 0000, а последната е 1111.</p>
+    <div class="actions">
+      <button class="button" data-close>Разбрах</button>
+    </div>
+  </dialog>
+
+  <dialog class="dialog" id="success-dialog">
+    <h2 id="success-title">Браво!</h2>
+    <p id="success-text"></p>
+    <div class="actions">
+      <a class="button secondary" href="index.html">Към началото</a>
+      <a class="button" href="level-4.html">Към ниво 4</a>
+    </div>
+  </dialog>
+
+  <script src="js/progress.js?v=7"></script>
+  <script src="js/ui.js?v=7"></script>
+  <script src="js/ram-level.js?v=7"></script>
+  <script src="js/level-3.js?v=7"></script>
 </body>
 </html>

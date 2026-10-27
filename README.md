@@ -6,6 +6,14 @@ A simulator of an 8 bit computer used for teaching kids how computers work and h
 It is a static site with no build step: open `index.html` in a browser
 (or serve the folder, e.g. with GitHub Pages).
 
+## Layout
+
+Every level page fits one screen, like the original sheet: CPU on the left
+(run button now; flags and registers in later levels), RAM in the centre
+scaled to the window height, and the screen on the right. Each level shows
+a one-line goal; the longer explanation is behind the "?" help button.
+On phones the page scrolls and the RAM takes one full screen of height.
+
 ## Levels
 
 1. **Адресите на паметта** — fill the address column of the empty 16-cell RAM with 0–15.

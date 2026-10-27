@@ -36,12 +36,6 @@ function charToByte(char) {
   return CHAR_CODES.has(char) ? CHAR_CODES.get(char) : null;
 }
 
-function setFeedback(text, kind) {
-  const feedback = document.getElementById("feedback");
-  feedback.textContent = text;
-  feedback.className = "feedback " + (kind || "");
-}
-
 // Renders the RAM with fixed binary addresses and an input per content cell.
 // cells[i] = { text, editable }; filter strips characters while typing.
 function buildRam(tbody, cells, filter) {
@@ -232,11 +226,6 @@ function setupProgramLevel(options) {
       return;
     }
 
-    const name = Progress.getName();
-    setFeedback("Браво" + (name ? ", " + name : "") + "! Ниво " + options.level + " е завършено!", "ok");
-    Progress.complete(options.level);
-    document.getElementById("next").hidden = false;
+    showSuccess(options.level, "Програмата работи. Ниво " + options.level + " е завършено!");
   });
-
-  showPlayerName();
 }

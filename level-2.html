@@ -4,66 +4,64 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DULOVO 8 — Ниво 2</title>
-  <link rel="stylesheet" href="css/style.css?v=6">
+  <link rel="stylesheet" href="css/style.css?v=7">
 </head>
-<body>
-  <div class="page">
-    <div class="top-bar">
-      <a class="logo" href="index.html">DULOVO 8</a>
-      <span class="player-name" id="player-name"></span>
+<body class="game">
+  <header class="bar">
+    <a class="logo" href="index.html">DULOVO 8</a>
+    <h1>Ниво 2 · Адресите в двоичен код</h1>
+    <span class="player-name" id="player-name"></span>
+  </header>
+
+  <section class="task">
+    <p class="goal">Запиши адресите в <strong>двоичен код с 4 бита</strong>. Сивите числа ти помагат.</p>
+    <button class="help-button" id="help-button" aria-label="Помощ">?</button>
+  </section>
+
+  <main class="stage">
+    <div class="cpu-area"></div>
+    <div class="ram-area">
+      <div class="area-title">RAM</div>
+      <table class="ram">
+        <tbody id="ram-body"></tbody>
+      </table>
     </div>
+    <div class="screen-area"></div>
+  </main>
 
-    <h1>Ниво 2: Адресите в двоичен код</h1>
-
-    <div class="level-layout">
-      <div>
-        <div class="ram-title">RAM</div>
-        <table class="ram">
-          <tbody id="ram-body"></tbody>
-        </table>
-      </div>
-
-      <div class="task">
-        <div class="panel">
-          <h2>Задача</h2>
-          <p>
-            Компютърът не познава цифрите от 0 до 9. Той разбира само
-            <strong>0</strong> и <strong>1</strong> — ток няма или ток има.
-            Една такава цифра се нарича <strong>бит</strong>.
-          </p>
-          <p>
-            Адресите на DULOVO 8 са от <strong>4 бита</strong>. Всеки бит има своя стойност:
-          </p>
-          <table class="bits">
-            <tr><th>8</th><th>4</th><th>2</th><th>1</th><td class="sum"></td></tr>
-            <tr><td>0</td><td>1</td><td>0</td><td>1</td><td class="sum">= 4 + 1 = 5</td></tr>
-          </table>
-          <p>
-            Събери стойностите на битовете, които са 1, и ще получиш числото.
-            Така 5 се записва като <strong>0101</strong>.
-          </p>
-          <p>
-            Запиши адресите от 0 до 15 в <strong>двоичен код с 4 бита</strong>.
-            Сивите числа отляво ще ти помагат.
-          </p>
-          <p>💡 Винаги пиши и четирите бита: 1 е <strong>0001</strong>, а не 1.</p>
-        </div>
-
-        <div class="actions">
-          <button class="button" id="check-button">Провери</button>
-          <button class="button secondary" id="clear-button">Изчисти</button>
-        </div>
-        <div class="feedback" id="feedback"></div>
-        <div class="actions" id="next" hidden>
-          <a class="button" href="level-3.html">Към ниво 3</a>
-          <a class="button secondary" href="index.html">Към началото</a>
-        </div>
-      </div>
+  <footer class="controls">
+    <p class="feedback" id="feedback"></p>
+    <div class="actions">
+      <button class="button" id="check-button">Провери</button>
+      <button class="button secondary" id="clear-button">Изчисти</button>
     </div>
-  </div>
+  </footer>
 
-  <script src="js/progress.js?v=6"></script>
-  <script src="js/ram-level.js?v=6"></script>
-  <script src="js/level-2.js?v=6"></script>
+  <dialog class="dialog" id="help-dialog">
+    <h2>Помощ</h2>
+    <p>Компютърът разбира само <strong>0</strong> и <strong>1</strong>. Всеки бит има стойност:</p>
+    <table class="bits">
+      <tr><th>8</th><th>4</th><th>2</th><th>1</th><td class="sum"></td></tr>
+      <tr><td>0</td><td>1</td><td>0</td><td>1</td><td class="sum">= 4 + 1 = 5</td></tr>
+    </table>
+    <p>Събери стойностите на битовете, които са 1. Пиши и четирите бита: 1 е <strong>0001</strong>.</p>
+    <div class="actions">
+      <button class="button" data-close>Разбрах</button>
+    </div>
+  </dialog>
+
+  <dialog class="dialog" id="success-dialog">
+    <h2 id="success-title">Браво!</h2>
+    <p id="success-text"></p>
+    <div class="actions">
+      <a class="button secondary" href="index.html">Към началото</a>
+      <a class="button" href="level-3.html">Към ниво 3</a>
+    </div>
+  </dialog>
+
+  <script src="js/progress.js?v=7"></script>
+  <script src="js/ui.js?v=7"></script>
+  <script src="js/ram-level.js?v=7"></script>
+  <script src="js/level-2.js?v=7"></script>
 </body>
 </html>
